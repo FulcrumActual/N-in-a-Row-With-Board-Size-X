@@ -66,6 +66,7 @@ public class InARowBoard {
         return this.numInRow;
     }
     
+    //REDUNDANCY with toString methods
     //Reinitialize board with known input
     private static String makeBoard(String[][] input) {
         
