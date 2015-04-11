@@ -6,25 +6,25 @@ public class InARowBoard {
     private int boardSize; //Class-Invariant: [3, +Infinity)
     private int numInRow; //Class-Invariant: [3, this.boardSize]
     
-    
     public InARowBoard(int numPlayer, int boardSize, int numInRow) {
-        if (checkNumPlayer(numPlayer)) {
+        if (InARowBoard.checkNumPlayer(numPlayer)) {
             this.numPlayer = numPlayer;
         } else {
             throw new IllegalArgumentException("Invalid number of players.");
         }
-        if (checkBoardSize(boardSize)) {
+        if (InARowBoard.checkBoardSize(boardSize)) {
             this.boardSize = boardSize;
         } else {
             throw new IllegalArgumentException("Invalid board size.");
         }
-        if (checkNumInRow(numInRow)) {
+        if (InARowBoard.checkNumInRow(numInRow, boardSize)) {
             this.numInRow = numInRow;
         } else {
             throw new IllegalArgumentException("Illegal connected number.");
         }
         
-        
+        this.input = new String[this.boardSize][this.boardSize];
+        this.board = InARowBoard.makeBoard(this.input);
     }
     
     public String process(String input) {
@@ -58,24 +58,30 @@ public class InARowBoard {
 	return this.numPlayer;
     }
     
-	public int getBoardSize() {
-            return this.boardSize;
-	}
-	
-	public int getNumInRow() {
-            return this.numInRow;
-	}
-	
-	private boolean checkNumPlayer(int numPlayer) {
-            return numPlayer >= 2;
-	}
-	
-	private boolean checkBoardSize(int boardSize) {
-            return boardSize >= 3;
-	}
-	
-	//Pre-Condition: this.boardSize is set
-	private boolean checkNumInRow(int numInRow) {
-            return numInRow >= 3 && numInRow <= this.boardSize;
-	}
+    public int getBoardSize() {
+        return this.boardSize;
+    }
+    
+    public int getNumInRow() {
+        return this.numInRow;
+    }
+    
+    //Reinitialize board with known input
+    private static String makeBoard(String[][] input) {
+        
+        
+        return "";
+    }
+    
+    private static boolean checkNumPlayer(int numPlayer) {
+        return numPlayer >= 2;
+    }
+    
+    private static boolean checkBoardSize(int boardSize) {
+        return boardSize >= 3;
+    }
+    
+    private static boolean checkNumInRow(int numInRow, int boardSize) {
+        return numInRow >= 3 && numInRow <= boardSize;
+    }
 }
