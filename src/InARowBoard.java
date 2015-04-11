@@ -59,23 +59,23 @@ public class InARowBoard {
     }
     
 	public int getBoardSize() {
-		return this.boardSize;
+            return this.boardSize;
 	}
 	
 	public int getNumInRow() {
-		return this.numInRow;
+            return this.numInRow;
 	}
 	
 	private boolean checkNumPlayer(int numPlayer) {
-		return numPlayer >= 2;
+            return numPlayer >= 2;
 	}
 	
 	private boolean checkBoardSize(int boardSize) {
-		return boardSize >= 3;
+            return boardSize >= 3;
 	}
 	
 	//Pre-Condition: this.boardSize is set
 	private boolean checkNumInRow(int numInRow) {
-		return numInRow >= 3 && numInRow <= this.boardSize;
+            return numInRow >= 3 && numInRow <= this.boardSize;
 	}
 }
